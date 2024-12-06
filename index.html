@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Article Summarizer</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: url('https://www.shutterstock.com/image-photo/calm-weather-on-sea-ocean-600nw-2212935531.jpg') no-repeat center center fixed;
+      background-size: cover;
+      margin: 0;
+      padding: 0;
+    }
+    .header {
+      margin: 40px 0;
+      text-align: center;
+    }
+    .header h1 {
+      color: #343a40;
+      font-weight: 700;
+    }
+    .header p {
+      font-size: 1.1rem;
+      color: #6c757d;
+    }
+    .card {
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
+      background-color: rgba(255, 255, 255, 0.9); /* Slight transparency for card */
+      backdrop-filter: blur(10px); /* Glassmorphism effect */
+    }
+    .btn-primary {
+      background-color: #007bff;
+      border: none;
+      transition: background-color 0.3s ease-in-out;
+    }
+    .btn-primary:hover {
+      background-color: #0056b3;
+    }
+    #summaryResult {
+      display: none;
+    }
+    #loadingSpinner {
+      display: none;
+      animation: fadeIn 0.5s;
+    }
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+    #summaryText {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: #212529;
+    }
+    .error-message {
+      display: none;
+      margin-top: 20px;
+      text-align: center;
+      color: #dc3545;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>📰 Article Summarizer</h1>
+      <p class="text-muted">Summarize any article instantly by providing its URL.</p>
+    </div>
+
+    <div class="card">
+      <div class="form-group">
+        <label for="articleURL"><strong>Enter Article URL:</strong></label>
+        <input type="text" id="articleURL" class="form-control" placeholder="https://example.com/article">
+      </div>
+      <button id="summarizeBtn" class="btn btn-primary btn-block">Summarize</button>
+
+      <div id="loadingSpinner" class="text-center mt-3">
+        <div class="spinner-border text-primary" role="status">
+          <span class="sr-only">Loading...</span>
+        </div>
+        <p>Fetching summary...</p>
+      </div>
+    </div>
+
+    <div id="summaryResult" class="mt-4">
+      <h3>Summary:</h3>
+      <p id="summaryText" class="p-3 bg-light rounded">Your summarized text will appear here.</p>
+    </div>
+
+    <div class="error-message" id="errorMessage">
+      ⚠️ Something went wrong! Please check the URL and try again.
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
