@@ -32,10 +32,12 @@ The **Article Summarizer** is a web application that allows users to instantly s
 
 ## 📸 **Screenshots**
 ### **Home Page**
-![Home Page Screenshot](https://via.placeholder.com/800x400) <!-- Replace with your actual screenshot URL -->
+![image](https://github.com/user-attachments/assets/12a92eb0-3405-4199-97be-f626e03ea55d)
+
 
 ### **Summary Result**
-![Summary Screenshot](https://via.placeholder.com/800x400) <!-- Replace with your actual screenshot URL -->
+![image](https://github.com/user-attachments/assets/0af52ea9-29e4-43e1-8b05-78fe8f660eb2)
+
 
 ---
 
