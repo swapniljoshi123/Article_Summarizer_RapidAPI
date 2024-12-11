@@ -45,7 +45,9 @@ This repository includes a modular, object-oriented Python script for building, 
 - **Logistic Regression**
 - **Random Forest**
 
-### Features
+### Code: `model_.py`
+
+The script provides the following features:
 
 - **Load Data**:  
    The `load()` method loads and preprocesses training and testing datasets from Excel files. It includes feature engineering and encoding of categorical variables.
@@ -88,6 +90,10 @@ The project compares the following models:
 - **Logistic Regression** with L2 Regularization
 - **Random Forest**
 - **XGBoost**
+
+### Code: `model_selection.ipynb`
+
+This notebook contains the comparison and evaluation of the models. It compares their performance across various metrics.
 
 ### Model Performance
 
