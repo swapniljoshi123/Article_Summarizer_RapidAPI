@@ -1,72 +1,120 @@
+Loan Default Prediction Project
+Overview
+This project aims to predict loan default statuses using Exploratory Data Analysis (EDA) and Machine Learning (ML) techniques. The repository is divided into three main tasks:
 
-# 📰 **Article Summarizer**
+Task 1: Exploratory Data Analysis (EDA)
+Task 2: Machine Learning Pipeline
+Task 3: Model Comparison
+Task 1: Exploratory Data Analysis (EDA)
+The EDA process involves detailed visualizations to uncover patterns and trends in the dataset. The code for this task is available in the eda.ipynb file.
 
-### **Overview**
-The **Article Summarizer** is a web application that allows users to instantly summarize any online article by simply providing its URL. Built using modern web technologies, it features a sleek design and an interactive user interface for a seamless experience.
+Key Visualizations
+Scatter Plot:
+Visualizes the relationship between annual income and loan amount, with points colored by home ownership status.
 
----
+Stacked Bar Chart:
+Displays the proportion of loan statuses (approved, declined) for each loan purpose.
 
-## 🚀 **Features**
-- 🌟 **Instant Summaries**: Input an article URL, and get a summarized version instantly.  
-- 🎨 **Modern UI**: Clean and responsive design using **Bootstrap 4**.  
-- 🌀 **Loading Spinner**: Displays progress during data fetching.  
-- ⚠️ **Error Handling**: Alerts users if the provided URL is invalid or if there's a connection issue.  
-- 📂 **Responsive Design**: Optimized for desktop and mobile devices.  
+CIBIL Score Distribution:
+Shows the distribution of CIBIL scores for different loan statuses, highlighting differences between approved and declined loans.
 
----
+Loan Amount Distribution:
+Illustrates the distribution of loan amounts across different loan terms and statuses.
 
-## 🛠️ **Technologies Used**
-- **Frontend**: HTML, CSS, JavaScript, Bootstrap 4  
-- **APIs**: Powered by [RapidAPI](https://rapidapi.com/) for summarizing content  
-- **Font**: [Roboto](https://fonts.google.com/specimen/Roboto) for a modern look  
+Loan Status by Home Ownership:
 
----
+Count of loan statuses across different home ownership categories.
+Proportion of loan statuses (approved, declined) within each home ownership category.
+Correlation Heatmap:
+Visualizes relationships between numerical features in the dataset, with color intensity indicating the strength of correlations.
 
-## 📖 **How It Works**
-1. Enter the URL of an article you want summarized.  
-2. Click the **Summarize** button.  
-3. The app fetches and displays the summarized content.  
-4. If there's an issue, the user is notified with an error message.  
+Task 2: Machine Learning Pipeline
+This repository includes a modular, object-oriented Python script for building, training, and evaluating machine learning models. The pipeline supports the following classification models:
 
----
+XGBoost
+Logistic Regression
+Random Forest
+Features
+Load Data:
+The load() method loads and preprocesses training and testing datasets from Excel files. It includes feature engineering and encoding of categorical variables.
 
-## 📸 **Screenshots**
-### **Home Page**
-![image](https://github.com/user-attachments/assets/12a92eb0-3405-4199-97be-f626e03ea55d)
+Preprocessing:
+The preprocess() method standardizes the features using StandardScaler.
 
+Model Training:
+The train() method fits the training data and tunes hyperparameters (for XGBoost).
 
-### **Summary Result**
-![image](https://github.com/user-attachments/assets/0af52ea9-29e4-43e1-8b05-78fe8f660eb2)
+Model Evaluation:
+The test() method evaluates model performance, displaying metrics such as accuracy, ROC-AUC, F1-score, classification report, and confusion matrix.
 
+Inference:
+The predict() method makes predictions using the trained model on the test set.
 
----
+Usage
+Load Data:
+Use the load() method with paths to training and test data.
 
-## ⚙️ **Setup Instructions**
-1. Clone this repository:
-   ```bash
-   git clone https://github.com/swapniljoshi123/Article_Summarizer_RapidAPI.git
-   ```
-2. Open the folder and run the project locally by opening `index.html` in your browser.
+Preprocess Data:
+Preprocess the data using the preprocess() method.
 
----
+Train Model:
+Train the desired model with the train() method.
 
-## 🌐 **Live Demo**
-Check out the live version: [Live Demo](https://swapniljoshi123.github.io/Article_Summarizer_RapidAPI)  
-<!-- Update with your GitHub Pages link once hosted -->
+Evaluate Model:
+Evaluate the model's performance with the test() method.
 
----
+Predict:
+Use the predict() method for making predictions on the test set.
 
-## 👨‍💻 **Contributing**
-Contributions are welcome! Feel free to fork this repository and submit a pull request with your improvements or bug fixes.
+Task 3: Model Comparison
+The project compares the following models:
 
----
+Logistic Regression with L2 Regularization
+Random Forest
+XGBoost
+Model Performance
+Metric	Logistic Regression	Random Forest	XGBoost
+Accuracy	0.6744	0.6778	0.6805
+ROC-AUC	0.6933	0.6996	0.6958
+F1-Score	0.7756	0.7867	0.7761
+Precision (Class 0)	0.60	0.65	0.60
+Recall (Class 1)	0.88	0.93	0.87
+Confusion Matrices
+Logistic Regression
+Predicted: 0	Predicted: 1
+Actual: 0	945	2110
+Actual: 1	643	4757
+Random Forest
+Predicted: 0	Predicted: 1
+Actual: 0	708	2347
+Actual: 1	377	5023
+XGBoost
+Predicted: 0	Predicted: 1
+Actual: 0	1073	1982
+Actual: 1	719	4681
+Why XGBoost?
+XGBoost outperformed other models on the given dataset due to the following reasons:
 
-## 📄 **License**
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+Imbalanced Data Handling:
+Effectively manages class imbalance using the scale_pos_weight parameter.
 
----
+Non-Linear Relationships:
+Captures complex, non-linear relationships between features (e.g., loan amount, CIBIL score) that Logistic Regression cannot.
 
-## 💡 **Future Enhancements**
-- Add support for multiple languages.
-- Allow text input for manual summarization.
-- Integrate additional summarization algorithms.
+Feature Importance:
+Provides insights into key features driving defaults (e.g., annual income, loan amount).
+
+Handles Missing Values:
+Automatically deals with missing values, reducing preprocessing effort.
+
+Regularization:
+Includes L2 regularization to prevent overfitting and ensure better generalization.
+
+Efficiency:
+Optimized for speed and scalability, suitable for large datasets.
+
+Hyperparameter Tuning:
+Extensive tuning options to maximize performance.
+
+Conclusion
+This project demonstrates the power of EDA and Machine Learning techniques for predicting loan default statuses. XGBoost, with its superior handling of imbalanced, non-linear data, emerged as the best-performing model. The pipeline is designed to be extendable and adaptable to different datasets and models.
